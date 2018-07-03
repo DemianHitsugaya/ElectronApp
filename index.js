@@ -2,6 +2,27 @@ const remote = require('electron').remote
 const main = remote.require('./main.js')
 
 $(function(){
+
+	let query = 'Select * from usuarios'
+
+	main.connection.query(query,function(err,rows,fields){
+		if (err) {
+			console.log(err)
+			console.log('Error al consultar la data ')
+			return
+		}
+
+		let row = rows[0]
+		$('.stats').append('Usuario: <span>'+row.Nombre+'</span>')
+		$('.stats').append('Ultima conexin: <span>'+row.UltimoLogin+'</span>')
+
+	})
+
+	main.closeConnection()
+
+
+
+	
 	const os = require('os')
 	const prettyBytes = require('pretty-bytes')
 

@@ -1,14 +1,28 @@
 {
   "name": "electronapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Mi primera app de electron",
+  "main": "./main.js",
   "scripts": {
-    "start":"electron main.js"
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Demian <togi_ortega@hotmail.com>",
+  "license": "MIT",
+  "license": "MIT",
+  "build": {
+   "appId": "Electron appp",
+   "win": {
+     "target": "nsis",
+     "icon": "build/icon.ico"
+   }
+},
+  "devDependencies": {
+    "electron-builder": "^20.19.1"
+  },
   "dependencies": {
-    "electron": "^2.0.3"
+    "mysql": "^2.15.0",
+    "pretty-bytes": "^5.1.0"
   }
 }
